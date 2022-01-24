@@ -4,6 +4,9 @@
 ## 組員
 林俊霆 洪琬哲 謝理致 陳侑宣
 
+## 程式畫面
+![image](img/screenshot.jpg)
+
 ## UML圖
 ![image](img/類別圖(更新1).png)
 
