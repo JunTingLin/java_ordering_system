@@ -16,20 +16,19 @@ import java.util.Date;
 
 import MealItem.SingleMeal;
 
-public class SingleMealData {
+public class SingleMealData {  //林俊霆
 
 	public static ArrayList<SingleMeal> FoodList = new ArrayList<SingleMeal>();
 	
 
 	public static void setFoodList() throws URISyntaxException  {
 		String line = "";
-		File f = new File(PackageMealData.class.getResource("/Single_meal.csv").toURI());
-//		File f = new File("D://中央大學//Lesson//109-2//程式設計(陳仲儼)//109第三次段考(期末專案)//csv_data//Set_meal.csv");
+//		File f = new File("D://中央大學//Lesson//109-2//程式設計(陳仲儼)//109第三次段考(期末專案)//csv_data//Single_meal.csv");
 		
 		InputStreamReader read = null;
 		try {
-			read = new InputStreamReader(new FileInputStream(f), "UTF-8");
-		} catch (UnsupportedEncodingException | FileNotFoundException e1) {
+			read = new InputStreamReader(SingleMealData.class.getResourceAsStream("/Single_meal.csv"), "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();
 		}
 
@@ -107,8 +106,9 @@ public class SingleMealData {
 		}
 		return null;
 	}
-
-	public static boolean noBreakfast() throws ParseException {
+	
+	//下面一個method由陳侑宣、謝理致，再由林俊霆彙整進來	
+	public static boolean noBreakfast() throws ParseException  {
 		SimpleDateFormat ft = new SimpleDateFormat("HH:mm:ss");
 
 		Date date = new Date();

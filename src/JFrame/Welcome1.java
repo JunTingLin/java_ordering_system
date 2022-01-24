@@ -21,7 +21,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Toolkit;
 
-public class Welcome1 extends JFrame {
+public class Welcome1 extends JFrame {  //林俊霆、洪琬哲
 
 	private JPanel contentPane;
 
@@ -33,7 +33,7 @@ public class Welcome1 extends JFrame {
 		SingleMealData.setFoodList();
 		PackageMealData.setFoodList();
 		Welcome1 frameWel = new Welcome1();
-		frameWel.setTitle("素食點餐系統-歡迎頁面");
+		frameWel.setTitle("速食點餐系統-歡迎頁面");
 		frameWel.setVisible(true);
 
 	}
@@ -51,7 +51,6 @@ public class Welcome1 extends JFrame {
 		setContentPane(contentPane);
 		setSize(800,600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		ImageIcon img = new ImageIcon(this.getClass().getResource("/fast-food2.png"));
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(14, 13, 754, 527);

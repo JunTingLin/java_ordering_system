@@ -1,8 +1,8 @@
 package MealItem;
 
-public class SingleMeal extends Meal{
-	protected String category;
-	protected boolean breakfast;
+public class SingleMeal extends Meal{  //陳侑宣、謝理致
+	private String category;
+	private boolean breakfast;
 	
 	public SingleMeal(String id, String name, int price, String category,boolean breakfast) {
 		setId(id);

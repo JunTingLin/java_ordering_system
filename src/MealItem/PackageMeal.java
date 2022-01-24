@@ -1,9 +1,9 @@
 package MealItem;
 
-public class PackageMeal extends Meal {
-	protected SingleMeal side1;
-	protected SingleMeal side2;
-	protected SingleMeal drinks;
+public class PackageMeal extends Meal {  //陳侑宣、謝理致
+	private SingleMeal side1;
+	private SingleMeal side2;
+	private SingleMeal drinks;
 
 	public PackageMeal(String id, String name, SingleMeal side1, SingleMeal side2, SingleMeal drinks, int price) {
 		setId(id);

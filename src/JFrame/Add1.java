@@ -15,7 +15,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
 
-public class Add1 extends JFrame {
+public class Add1 extends JFrame {  //林俊霆、洪琬哲
 
 	private JPanel contentPane;
 
@@ -25,12 +25,12 @@ public class Add1 extends JFrame {
 	public static void main(String[] args) {
 		if(List3.count==1) {  //假如是"更換"的話就直接跳清單頁面
 			List1 list1 = new List1();
-			list1.setTitle("素食點餐系統-清單");
+			list1.setTitle("速食點餐系統-清單");
 			list1.setVisible(true);
 		}
 		else {
 			Add1 add1 = new Add1();
-			add1.setTitle("素食點餐系統-加選頁面");
+			add1.setTitle("速食點餐系統-加選頁面");
 			add1.setVisible(true);
 		}
 	}

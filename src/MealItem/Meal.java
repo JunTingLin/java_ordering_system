@@ -1,9 +1,9 @@
 package MealItem;
 
-public class Meal {
-	protected String id;
-	protected String name;
-	protected int price;
+public class Meal {  //陳侑宣、謝理致
+	private String id;
+	private String name;
+	private int price;
 
 	public String getId() {
 		return id;

@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class List1 extends JFrame {
+public class List1 extends JFrame {  //林俊霆、洪琬哲
 
 	private JPanel contentPane;
 
@@ -26,7 +26,7 @@ public class List1 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		List1 list1 = new List1();
-		list1.setTitle("素食點餐系統-清單");
+		list1.setTitle("速食點餐系統-清單");
 		list1.setVisible(true);
 	}
 

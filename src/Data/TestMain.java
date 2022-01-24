@@ -6,7 +6,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 
-public class TestMain {
+public class TestMain {  //此類別為零時測試用的main
 
 	public static void main(String[] args) throws IOException, ParseException, URISyntaxException {
 		SingleMealData.setFoodList();
@@ -43,7 +43,7 @@ public class TestMain {
 //		OrderList.SingleAdd("3");
 		
 		System.out.println(OrderList.showAll());
-		
+		OrderList.receipt();
 		
 		System.out.println(SingleMealData.FoodList.get(6));
 		System.out.println(SingleMealData.FoodList.get(6).isBreakfast());
@@ -54,8 +54,6 @@ public class TestMain {
 			}
 			option.add(SingleMealData.FoodList.get(i).getId());
 		}
-		OrderList.receipt();
-		OrderList.TransactionRecord();
 		
 		
 	}

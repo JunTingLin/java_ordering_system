@@ -17,7 +17,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PackageMeal1 extends JFrame {
+public class PackageMeal1 extends JFrame {  //林俊霆、洪琬哲
 
 	private JPanel contentPane;
 	String[] option = new String[PackageMealData.FoodList.size()];
@@ -28,7 +28,7 @@ public class PackageMeal1 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		PackageMeal1 packageMeal1 = new PackageMeal1();
-		packageMeal1.setTitle("素食點餐系統-套餐選單");
+		packageMeal1.setTitle("速食點餐系統-套餐選單");
 		packageMeal1.setVisible(true);
 	}
 

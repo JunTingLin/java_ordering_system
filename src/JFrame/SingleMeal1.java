@@ -20,7 +20,7 @@ import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
-public class SingleMeal1 extends JFrame {
+public class SingleMeal1 extends JFrame {  //林俊霆、洪琬哲
 
 	private JPanel contentPane;
 	private JComboBox comboBox;
@@ -35,7 +35,7 @@ public class SingleMeal1 extends JFrame {
 	 */
 	public static void main(String[] args) throws ParseException {
 		SingleMeal1 singleMeal1 = new SingleMeal1();
-		singleMeal1.setTitle("素食點餐系統-單點選單");
+		singleMeal1.setTitle("速食點餐系統-單點選單");
 		singleMeal1.setVisible(true);
 	}
 
@@ -95,7 +95,7 @@ public class SingleMeal1 extends JFrame {
 		}
 		
 
-		//option = new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+//		option = new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 		comboBox = new JComboBox(option);
 		comboBox.setFont(new Font("新細明體", Font.PLAIN, 27));
 		comboBox.setBounds(421, 333, 283, 62);

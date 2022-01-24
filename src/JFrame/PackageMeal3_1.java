@@ -19,7 +19,7 @@ import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PackageMeal3_1 extends JFrame {
+public class PackageMeal3_1 extends JFrame {  //林俊霆、洪琬哲
 
 	private JPanel contentPane;
 	private JComboBox comboBox;
@@ -31,7 +31,7 @@ public class PackageMeal3_1 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		PackageMeal3_1 singleMeal1 = new PackageMeal3_1();
-		singleMeal1.setTitle("素食點餐系統-單點選單");
+		singleMeal1.setTitle("速食點餐系統-單點選單");
 		singleMeal1.setVisible(true);
 	}
 

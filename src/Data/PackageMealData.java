@@ -13,18 +13,18 @@ import java.util.ArrayList;
 
 import MealItem.PackageMeal;
 
-public class PackageMealData {
+public class PackageMealData {  //林俊霆
 
 	public static ArrayList<PackageMeal> FoodList = new ArrayList<PackageMeal>();
 
 	public static void setFoodList() throws URISyntaxException {
-		String line = "";
-		File f = new File(PackageMealData.class.getResource("/Set_meal.csv").toURI());
+		String line = ""; 
+//		File f = new File("D://中央大學//Lesson//109-2//程式設計(陳仲儼)//109第三次段考(期末專案)//csv_data//Set_meal.csv");
 		
 		InputStreamReader read = null;
 		try {
-			read = new InputStreamReader(new FileInputStream(f), "UTF-8");
-		} catch (UnsupportedEncodingException | FileNotFoundException e1) {
+			read = new InputStreamReader(SingleMealData.class.getResourceAsStream("/Set_meal.csv"), "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();
 		}
 

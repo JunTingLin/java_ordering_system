@@ -15,7 +15,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class List3 extends JFrame {
+public class List3 extends JFrame {  //林俊霆、洪琬哲
 
 	private JPanel contentPane;
 	protected static int count;
@@ -25,7 +25,7 @@ public class List3 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		List3 frameWel = new List3();
-		frameWel.setTitle("素食點餐系統-清單");
+		frameWel.setTitle("速食點餐系統-清單");
 		frameWel.setVisible(true);
 
 	}
@@ -49,6 +49,7 @@ public class List3 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				count=1;
 				dispose();
+				OrderList.Remove(OrderList.getTempId());
 				JOptionPane.showMessageDialog(null,"將跳回主選單，請您對那筆重新選擇");
 				Menu1.main(null);
 			}

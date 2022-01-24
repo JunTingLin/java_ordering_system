@@ -5,11 +5,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import MealItem.Meal;
 import MealItem.PackageMeal;
 
-public class OrderList {
+public class OrderList {  //林俊霆
 	public static ArrayList<Meal> FoodList = new ArrayList<Meal>();
 	static String tempId;
 	public static int addMoney;
@@ -93,15 +94,16 @@ public class OrderList {
 		}
 		return null;
 	}
-	
-	static String txt_receipt = null;
 
+//下面兩個method由陳侑宣、謝理致，再由林俊霆彙整進來	
+	private static String txt_receipt;
 	public static void receipt() throws IOException
 	{	
-		String fileName="收據.txt";  
+		String fileName="收據.txt";
+		Date date = new Date();
 		
 		BufferedWriter output = new BufferedWriter(new FileWriter(fileName)); 
-		String HTML_receipt=OrderList.showAll()+"		總金額:$"+OrderList.Calculate();
+		String HTML_receipt=date+"\n"+OrderList.showAll()+"		總金額:$"+OrderList.Calculate();
 		txt_receipt = HTML_receipt.replaceAll("<br>", "\n").replaceAll("<body>", "").replaceAll("<html>", "");
 		output.write(txt_receipt);
 		output.flush();
@@ -120,9 +122,11 @@ public class OrderList {
 		// true = append file
 		FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
 		BufferedWriter bw = new BufferedWriter(fw);
+		txt_receipt+="\n---------------------------------------------------------------------\n";
 		bw.write(txt_receipt);
 		 
 		bw.close();
 		fw.close();
 	}
+	
 }

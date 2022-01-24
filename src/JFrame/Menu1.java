@@ -15,7 +15,7 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 
-public class Menu1 extends JFrame {
+public class Menu1 extends JFrame {  //林俊霆、洪琬哲
 
 	private JPanel contentPane;
 
@@ -24,7 +24,7 @@ public class Menu1 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		Menu1 menue1 = new Menu1();
-		menue1.setTitle("素食點餐系統-主選單");
+		menue1.setTitle("速食點餐系統-主選單");
 		menue1.setVisible(true);
 
 	}

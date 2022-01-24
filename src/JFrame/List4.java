@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import Data.OrderList;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 
@@ -17,7 +19,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
-public class List4 extends JFrame {
+public class List4 extends JFrame {  //林俊霆、洪琬哲
 
 	private JPanel contentPane;
 
@@ -27,7 +29,7 @@ public class List4 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		List4 list1 = new List4();
-		list1.setTitle("素食點餐系統-清單");
+		list1.setTitle("速食點餐系統-清單");
 		list1.setVisible(true);
 	}
 
@@ -57,6 +59,8 @@ public class List4 extends JFrame {
 				dispose();
 				try {
 					OrderList.receipt();
+					OrderList.TransactionRecord();
+					JOptionPane.showMessageDialog(null, "🍔  🍟  🌭  🍿\n收據已匯出，\n並自動記錄在交易紀錄檔中😀");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

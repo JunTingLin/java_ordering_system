@@ -16,7 +16,7 @@ import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class List2 extends JFrame {
+public class List2 extends JFrame {  //林俊霆、洪琬哲
 
 	private JPanel contentPane;
 	private String[] option;
@@ -28,7 +28,7 @@ public class List2 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		List2 list1 = new List2();
-		list1.setTitle("素食點餐系統-清單");
+		list1.setTitle("速食點餐系統-清單");
 		list1.setVisible(true);
 	}
 
