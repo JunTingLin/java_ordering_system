@@ -92,15 +92,7 @@ public class OrderList {
 		}
 		return null;
 	}
-//	private static String parseHTMLContent(String toString) {
-//	    String result = toString.replaceAll("<br>", "\n");
-//	    String previousResult = "";
-//	    while(!previousResult.equals(result)){
-//	        previousResult = result;
-//	        result = result.replaceAll("\n\n","\n");
-//	    }
-//	    return result;
-//	}
+
 	public static void receipt() throws IOException
 	{	
 		String fileName="收據.txt";  

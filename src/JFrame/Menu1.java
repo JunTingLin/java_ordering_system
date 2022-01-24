@@ -6,6 +6,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import Data.*;
 import java.awt.event.ActionListener;
@@ -55,10 +56,11 @@ public class Menu1 extends JFrame {
 					public void actionPerformed(ActionEvent arg0) {
 						dispose();
 						try {
+							JOptionPane.showMessageDialog(null, "有進來");
 							SingleMeal1.main(null);
-						} catch (ParseException e) {
+						} catch (Exception e) {
 							// TODO Auto-generated catch block
-							e.printStackTrace();
+							JOptionPane.showMessageDialog(null, "訊息"+e.getMessage());
 						}
 					}
 				});

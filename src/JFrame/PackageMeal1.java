@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import Data.OrderList;
 import Data.PackageMealData;
+import Data.SingleMealData;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -23,7 +24,7 @@ import java.awt.event.ActionEvent;
 public class PackageMeal1 extends JFrame {
 
 	private JPanel contentPane;
-	private String[] option;
+	String[] option = new String[PackageMealData.FoodList.size()];
 	private String selected;
 
 	/**
@@ -52,7 +53,10 @@ public class PackageMeal1 extends JFrame {
 		lblNewLabel_1.setBounds(390, 135, 267, 80);
 		contentPane.add(lblNewLabel_1);
 
-		option = new String[] { "A", "B", "C" };
+		for (int i = 0; i < PackageMealData.FoodList.size(); i++) {
+			option[i]=PackageMealData.FoodList.get(i).getId();
+		}
+//		option = new String[] { "A", "B", "C" };
 		JComboBox comboBox = new JComboBox(option);
 		comboBox.setFont(new Font("新細明體", Font.PLAIN, 27));
 		comboBox.setBounds(390, 243, 267, 93);

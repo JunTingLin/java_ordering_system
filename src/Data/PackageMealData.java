@@ -5,9 +5,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Properties;
+
+import javax.print.DocFlavor.URL;
 
 import MealItem.PackageMeal;
 
@@ -15,13 +20,18 @@ public class PackageMealData {
 
 	public static ArrayList<PackageMeal> FoodList = new ArrayList<PackageMeal>();
 	static {
-		setFoodList();
+		try {
+			setFoodList();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	public static void setFoodList() {
+	public static void setFoodList() throws URISyntaxException {
 		String line = "";
-		File f = new File("D://中央大學//Lesson//109-2//程式設計(陳仲儼)//109第三次段考(期末專案)//csv_data//Set_meal.csv");
-
+		File f = new File(PackageMealData.class.getResource("/Set_meal.csv").toURI());
+		
 		InputStreamReader read = null;
 		try {
 			read = new InputStreamReader(new FileInputStream(f), "UTF-8");
@@ -59,21 +69,21 @@ public class PackageMealData {
 			e.printStackTrace();
 		}
 	};
-
 	public static String showAll() {
 		String message = "<html><body>所有的套餐:<br>";
 		for (int i = 0; i < FoodList.size(); i++) {
-			message += (FoodList.get(i) + "<br>---副餐:"+FoodList.get(i).getSide1().simplePrint());
-			if(FoodList.get(i).getSide2()!=null)
-				message+="、"+FoodList.get(i).getSide2().simplePrint();
+			message += (FoodList.get(i) + "<br>---副餐:" + FoodList.get(i).getSide1().simplePrint());
+			if (FoodList.get(i).getSide2() != null)
+				message += "、" + FoodList.get(i).getSide2().simplePrint();
 
-			message+=("<br>---飲料:"+FoodList.get(i).getDrinks().simplePrint()+"<br><br>");
+			message += ("<br>---飲料:" + FoodList.get(i).getDrinks().simplePrint() + "<br><br>");
 		}
 		return message + "<body><html>";
 	}
+
 	public static PackageMeal get(String id) {
 		for (int i = 0; i < FoodList.size(); i++) {
-			if(FoodList.get(i).getId().equals(id)) {
+			if (FoodList.get(i).getId().equals(id)) {
 				return FoodList.get(i);
 			}
 		}
