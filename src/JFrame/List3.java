@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -27,7 +29,7 @@ public class List3 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		List3 frameWel = new List3();
-		frameWel.setTitle("¯À­¹ÂIÀ\¨t²Î-²M³æ");
+		frameWel.setTitle("ç´ é£Ÿé»é¤ç³»çµ±-æ¸…å–®");
 		frameWel.setVisible(true);
 
 	}
@@ -36,6 +38,7 @@ public class List3 extends JFrame {
 	 * Create the frame.
 	 */
 	public List3() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/NCULogo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
@@ -44,13 +47,13 @@ public class List3 extends JFrame {
 		setContentPane(contentPane);
 
 		JButton correctButton = new JButton("\u66F4\u63DB");
-		correctButton.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 30));
+		correctButton.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 30));
 		correctButton.setLocation(0, 421);
 		correctButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				count=1;
 				dispose();
-				JOptionPane.showMessageDialog(null,"±N¸õ¦^¥D¿ï³æ¡A½Ğ±z¹ï¨ºµ§­«·s¿ï¾Ü");
+				JOptionPane.showMessageDialog(null,"å°‡è·³å›ä¸»é¸å–®ï¼Œè«‹æ‚¨å°é‚£ç­†é‡æ–°é¸æ“‡");
 				Menu1.main(null);
 			}
 		});
@@ -60,18 +63,18 @@ public class List3 extends JFrame {
 		JLabel lblNewLabel = new JLabel("\u4F60\u8981\u5C0D\u9019\u7B46\u6E05\u55AE\u4F5C\u4F55\u9805\u52D5\u4F5C?");
 		lblNewLabel.setBounds(0, 212, 588, 52);
 		contentPane.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 43));
+		lblNewLabel.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 43));
 		
 		JButton correctButton_1 = new JButton("\u522A\u9664");
 		correctButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				OrderList.Remove(OrderList.getTempId());
 				dispose();
-				JOptionPane.showMessageDialog(null, "¨ºµ§¤w¦¨¥\§R°£");
+				JOptionPane.showMessageDialog(null, "é‚£ç­†å·²æˆåŠŸåˆªé™¤");
 				List1.main(null);
 			}
 		});
-		correctButton_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 30));
+		correctButton_1.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 30));
 		correctButton_1.setBounds(262, 421, 262, 132);
 		contentPane.add(correctButton_1);
 		
@@ -82,7 +85,7 @@ public class List3 extends JFrame {
 				List4.main(null);
 			}
 		});
-		correctButton_2.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 30));
+		correctButton_2.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 30));
 		correctButton_2.setBounds(520, 421, 262, 132);
 		contentPane.add(correctButton_2);
 

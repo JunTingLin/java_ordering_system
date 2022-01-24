@@ -24,7 +24,7 @@ public class SingleMealData {
 
 	public static void setFoodList() {
 		String line = "";
-		File f = new File("D://¤¤¥¡¤j¾Ç//Lesson//109-2//µ{¦¡³]­p(³¯¥òÅk)//109²Ä¤T¦¸¬q¦Ò(´Á¥½±M®×)//csv_data//Single_meal.csv");
+		File f = new File("D://ä¸­å¤®å¤§å­¸//Lesson//109-2//ç¨‹å¼è¨­è¨ˆ(é™³ä»²å„¼)//109ç¬¬ä¸‰æ¬¡æ®µè€ƒ(æœŸæœ«å°ˆæ¡ˆ)//csv_data//Single_meal.csv");
 
 		InputStreamReader read = null;
 		try {
@@ -55,26 +55,10 @@ public class SingleMealData {
 		}
 	};
 
-	public static String showAll() throws ParseException{
-		SimpleDateFormat ft = new SimpleDateFormat("HH:mm:ss");
-
-		Date date1 = new Date();
-		//Date date1 = ft.parse("01:49:55");
-		Date date2 = ft.parse("10:30:00");
-
-		if (date1.after(date2)) {
-			System.out.println("10ÂI¥b«á¤F¡AµL¦­À\");
-		}
-		else {
-			System.out.println("¦³¦­À\");
-		}
-
-		System.out.println(ft.format(date1));
-
-
-		String message = "<html><body>©Ò¦³ªº³æÂI:<br>";
+	public static String showAll() throws ParseException {
+		String message = "<html><body>æ‰€æœ‰çš„å–®é»:<br>";
 		for (int i = 0; i < FoodList.size(); i++) {
-			if (date1.after(date2) && FoodList.get(i).isBreakfast()) {
+			if (noBreakfast() && FoodList.get(i).isBreakfast()) {
 				continue;
 			}
 			message += (FoodList.get(i) + "<br>");
@@ -82,10 +66,23 @@ public class SingleMealData {
 		return message + "<body><html>";
 	}
 
-	public static String showSideMeal() {
-		String message = "<html><body>°ÆÀ\:<br>";
+	public static String showMainMeal() throws ParseException {
+		String message = "<html><body>";
 		for (int i = 0; i < FoodList.size(); i++) {
-			if (FoodList.get(i).getCategory().equals("°ÆÀ\")) {
+			if (FoodList.get(i).getCategory().equals("ä¸»é¤")) {
+				if (noBreakfast() && FoodList.get(i).isBreakfast()) {
+					continue;
+				}
+				message += (FoodList.get(i) + "<br>");
+			}
+		}
+		return message + "<body><html>";
+	}
+
+	public static String showSideMeal() {
+		String message = "<html><body>";
+		for (int i = 0; i < FoodList.size(); i++) {
+			if (FoodList.get(i).getCategory().equals("å‰¯é¤")) {
 				message += (FoodList.get(i) + "<br>");
 			}
 		}
@@ -93,9 +90,9 @@ public class SingleMealData {
 	}
 
 	public static String showDrink() {
-		String message = "<html><body>¶¼®Æ:<br>";
+		String message = "<html><body>";
 		for (int i = 0; i < FoodList.size(); i++) {
-			if (FoodList.get(i).getCategory().equals("¶¼®Æ")) {
+			if (FoodList.get(i).getCategory().equals("é£²æ–™")) {
 				message += (FoodList.get(i) + "<br>");
 			}
 		}
@@ -109,5 +106,16 @@ public class SingleMealData {
 			}
 		}
 		return null;
+	}
+
+	public static boolean noBreakfast() throws ParseException {
+		SimpleDateFormat ft = new SimpleDateFormat("HH:mm:ss");
+
+		Date date = new Date();
+		String a = ft.format(date);
+		Date date1 = ft.parse(a);
+		Date date2 = ft.parse("10:30:00");
+
+		return date1.after(date2);
 	}
 }

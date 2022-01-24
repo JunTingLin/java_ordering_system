@@ -20,7 +20,7 @@ public class PackageMealData {
 
 	public static void setFoodList() {
 		String line = "";
-		File f = new File("D://¤¤¥¡¤j¾Ç//Lesson//109-2//µ{¦¡³]­p(³¯¥òÅk)//109²Ä¤T¦¸¬q¦Ò(´Á¥½±M®×)//csv_data//Set_meal.csv");
+		File f = new File("D://ä¸­å¤®å¤§å­¸//Lesson//109-2//ç¨‹å¼è¨­è¨ˆ(é™³ä»²å„¼)//109ç¬¬ä¸‰æ¬¡æ®µè€ƒ(æœŸæœ«å°ˆæ¡ˆ)//csv_data//Set_meal.csv");
 
 		InputStreamReader read = null;
 		try {
@@ -61,13 +61,13 @@ public class PackageMealData {
 	};
 
 	public static String showAll() {
-		String message = "<html><body>©Ò¦³ªº®MÀ\:<br>";
+		String message = "<html><body>æ‰€æœ‰çš„å¥—é¤:<br>";
 		for (int i = 0; i < FoodList.size(); i++) {
-			message += (FoodList.get(i) + "<br>---°ÆÀ\:"+FoodList.get(i).getSide1().simplePrint());
+			message += (FoodList.get(i) + "<br>---å‰¯é¤:"+FoodList.get(i).getSide1().simplePrint());
 			if(FoodList.get(i).getSide2()!=null)
-				message+="¡B"+FoodList.get(i).getSide2().simplePrint();
+				message+="ã€"+FoodList.get(i).getSide2().simplePrint();
 
-			message+=("<br>---¶¼®Æ:"+FoodList.get(i).getDrinks().simplePrint()+"<br><br>");
+			message+=("<br>---é£²æ–™:"+FoodList.get(i).getDrinks().simplePrint()+"<br><br>");
 		}
 		return message + "<body><html>";
 	}

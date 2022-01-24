@@ -9,8 +9,11 @@ import javax.swing.border.EmptyBorder;
 import Data.OrderList;
 import Data.SingleMealData;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
@@ -29,7 +32,7 @@ public class PackageMeal2_2 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		PackageMeal2_2 singleMeal1 = new PackageMeal2_2();
-		singleMeal1.setTitle("¯À­¹ÂIÀ\¨t²Î-°ÆÀ\¿ï³æ");
+		singleMeal1.setTitle("ç´ é£Ÿé»é¤ç³»çµ±-å‰¯é¤é¸å–®");
 		singleMeal1.setVisible(true);
 	}
 
@@ -37,6 +40,7 @@ public class PackageMeal2_2 extends JFrame {
 	 * Create the frame.
 	 */
 	public PackageMeal2_2() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/NCULogo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
@@ -45,29 +49,31 @@ public class PackageMeal2_2 extends JFrame {
 		setContentPane(contentPane);
 
 		JButton correctButton = new JButton("\u78BA\u8A8D");
+		correctButton.setIcon(new ImageIcon(this.getClass().getResource("/ok.png")));
 		correctButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				selected = option[comboBox.getSelectedIndex()];
-				if (PackageMeal2_1.selected == null) // PackageMeal2_1¨S¶i¥h¡Aªí°ÆÀ\¥u¦³¤@­Óªº®É­Ô
+				if (PackageMeal2_1.selected == null) // PackageMeal2_1æ²’é€²å»ï¼Œè¡¨å‰¯é¤åªæœ‰ä¸€å€‹çš„æ™‚å€™
 					OrderList.changePackageSide1Meal(selected);
 				else {
 					if (PackageMeal2_1.selected.equals(PackageMeal2_1.option[0]))
-						OrderList.changePackageSide1Meal(selected); // °²¦p¿ï¾Ü§ï²Ä¤@­Ó°ÆÀ\
+						OrderList.changePackageSide1Meal(selected); // å‡å¦‚é¸æ“‡æ”¹ç¬¬ä¸€å€‹å‰¯é¤
 					else
-						OrderList.changePackageSide2Meal(selected); // °²¦p¿ï¾Ü§ï²Ä¤G­Ó°ÆÀ\
+						OrderList.changePackageSide2Meal(selected); // å‡å¦‚é¸æ“‡æ”¹ç¬¬äºŒå€‹å‰¯é¤
 				}
 
 				if (OrderList.addMoney > 0)
-					JOptionPane.showMessageDialog(null, "´£¿ô±z:\n¶·¸É®tÃB$" + OrderList.addMoney);
+					JOptionPane.showMessageDialog(null, "æé†’æ‚¨:\né ˆè£œå·®é¡$" + OrderList.addMoney);
 				dispose();
 				PackageMeal3_0.main(null);
 			}
 		});
-		correctButton.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 30));
+		correctButton.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 30));
 		correctButton.setBounds(0, 421, 392, 132);
 		contentPane.add(correctButton);
 
 		JButton correctButton_1 = new JButton("\u56DE\u4E0A\u4E00\u9801");
+		correctButton_1.setIcon(new ImageIcon(this.getClass().getResource("/go back.png")));
 		correctButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -77,23 +83,23 @@ public class PackageMeal2_2 extends JFrame {
 					PackageMeal2_1.main(null);
 			}
 		});
-		correctButton_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 30));
+		correctButton_1.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 30));
 		correctButton_1.setBounds(390, 421, 392, 132);
 		contentPane.add(correctButton_1);
 
 		JLabel lblNewLabel = new JLabel(SingleMealData.showSideMeal());
-		lblNewLabel.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 26));
+		lblNewLabel.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 26));
 		lblNewLabel.setBounds(56, 28, 310, 364);
 		contentPane.add(lblNewLabel);
 
 		option = new String[] { "1", "5", "6", "8" };
 		comboBox = new JComboBox(option);
-		comboBox.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 27));
+		comboBox.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 27));
 		comboBox.setBounds(390, 243, 267, 93);
 		contentPane.add(comboBox);
 
 		JLabel lblNewLabel_1 = new JLabel("\u8ACB\u9078\u64C7\u4F60\u8981\u66F4\u6539\u7684\u526F\u9910?");
-		lblNewLabel_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 26));
+		lblNewLabel_1.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 26));
 		lblNewLabel_1.setBounds(390, 135, 350, 80);
 		contentPane.add(lblNewLabel_1);
 	}

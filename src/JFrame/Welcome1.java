@@ -9,9 +9,16 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Toolkit;
 
 public class Welcome1 extends JFrame {
 
@@ -22,7 +29,7 @@ public class Welcome1 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		Welcome1 frameWel = new Welcome1();
-		frameWel.setTitle("Ø¿≠π¬I¿\®t≤Œ-≈w™Ô≠∂≠±");
+		frameWel.setTitle("Á¥†È£üÈªûÈ§êÁ≥ªÁµ±-Ê≠°ËøéÈ†ÅÈù¢");
 		frameWel.setVisible(true);
 
 	}
@@ -31,29 +38,58 @@ public class Welcome1 extends JFrame {
 	 * Create the frame.
 	 */
 	public Welcome1() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/NCULogo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		setSize(800,600);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		ImageIcon img = new ImageIcon(this.getClass().getResource("/fast-food2.png"));
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(14, 13, 754, 527);
+		contentPane.add(panel);
+				
+						JButton correctButton = new JButton("\u9032\u5165\u9EDE\u9910\u7CFB\u7D71");
+						correctButton.setIcon(new ImageIcon(this.getClass().getResource("/enter.png")));
+						correctButton.setFont(new Font("Êñ∞Á¥∞ÊòéÈ´î", Font.PLAIN, 30));
+						
+								JLabel lblNewLabel = new JLabel("Ê≠°Ëøé‰æÜÂà∞ Á¨¨7ÁµÑ Á¥†È£üÈªûÈ§êÁ≥ªÁµ±");
+								lblNewLabel.setFont(new Font("Ê®ôÊ•∑È´î", Font.BOLD, 43));
+						
+						JLabel lblNewLabel_1 = new JLabel("New label");
+						lblNewLabel_1.setIcon(new ImageIcon(this.getClass().getResource("/fast-food2.png")));
+						GroupLayout gl_panel = new GroupLayout(panel);
+						gl_panel.setHorizontalGroup(
+							gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(correctButton, GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
+								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 754, Short.MAX_VALUE)
+								.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+									.addContainerGap(87, Short.MAX_VALUE)
+									.addComponent(lblNewLabel)
+									.addGap(79))
+						);
+						gl_panel.setVerticalGroup(
+							gl_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addComponent(lblNewLabel)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 360, Short.MAX_VALUE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(correctButton, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE))
+						);
+						panel.setLayout(gl_panel);
+				correctButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						dispose();
+						Menu1.main(null);
+					}
+				});
 
-		JButton correctButton = new JButton("\u9032\u5165\u9EDE\u9910\u7CFB\u7D71");
-		correctButton.setFont(new Font("∑s≤”©˙≈È", Font.PLAIN, 30));
-		correctButton.setLocation(0, 421);
-		correctButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				dispose();
-				Menu1.main(null);
-			}
-		});
-		contentPane.add(correctButton);
-		correctButton.setSize(782, 132);
-
-		JLabel lblNewLabel = new JLabel("≈w™Ô®”®Ï ≤ƒ7≤’ Ø¿≠π¬I¿\®t≤Œ");
-		lblNewLabel.setBounds(100, 198, 588, 52);
-		contentPane.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("∑s≤”©˙≈È", Font.BOLD, 43));
+		
 
 	}
 }

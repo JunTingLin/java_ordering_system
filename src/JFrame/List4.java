@@ -11,9 +11,13 @@ import Data.OrderList;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class List4 extends JFrame {
@@ -26,7 +30,7 @@ public class List4 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		List4 list1 = new List4();
-		list1.setTitle("¯À­¹ÂIÀ\¨t²Î-²M³æ");
+		list1.setTitle("ç´ é£Ÿé»é¤ç³»çµ±-æ¸…å–®");
 		list1.setVisible(true);
 	}
 
@@ -34,6 +38,7 @@ public class List4 extends JFrame {
 	 * Create the frame.
 	 */
 	public List4() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/NCULogo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
@@ -42,26 +47,38 @@ public class List4 extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblNewLabel = new JLabel("\u671F\u5F85\u60A8\u4E0B\u6B21\u5149\u81E8");
-		lblNewLabel.setFont(new Font("·s²Ó©úÅé", Font.BOLD, 52));
-		lblNewLabel.setBounds(200, 260, 392, 52);
+		lblNewLabel.setFont(new Font("æ–°ç´°æ˜é«”", Font.BOLD, 52));
+		lblNewLabel.setBounds(192, 13, 392, 52);
 		contentPane.add(lblNewLabel);
 		
-		JButton correctButton = new JButton("\u78BA\u8A8D");
+		JButton correctButton = new JButton("ç¢ºèªï¼Œä¸¦åŒ¯å‡ºæ”¶æ“š");
+		correctButton.setIcon(new ImageIcon(this.getClass().getResource("/confirm.png")));
 		correctButton.addActionListener(new ActionListener() {
 			
 
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				try {
+					OrderList.receipt();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
-		correctButton.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 30));
+		correctButton.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 30));
 		correctButton.setBounds(0, 421, 782, 132);
 		contentPane.add(correctButton);
 		
-		JLabel lblNewLabel_1 = new JLabel("ª÷ÃB¤@¦@¬O:"+OrderList.Calculate());
-		lblNewLabel_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 43));
-		lblNewLabel_1.setBounds(115, 147, 588, 52);
+		JLabel lblNewLabel_1 = new JLabel("é‡‘é¡ä¸€å…±æ˜¯:$"+OrderList.Calculate());
+		lblNewLabel_1.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 43));
+		lblNewLabel_1.setBounds(254, 370, 330, 52);
 		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(this.getClass().getResource("/Thanks for coming.jpg")));
+		lblNewLabel_2.setBounds(53, 98, 672, 259);
+		contentPane.add(lblNewLabel_2);
 		
 		
 		

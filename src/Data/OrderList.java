@@ -22,24 +22,24 @@ public class OrderList {
 	}
 
 
-	public static void changePackageSide1Meal(String id) {  // øÔæ‹≠nßÔ¶®¨∆ªÚ
-		addMoney = 0;  //Ætª˘
+	public static void changePackageSide1Meal(String id) {  // ÈÅ∏ÊìáË¶ÅÊîπÊàêÁîöÈ∫º
+		addMoney = 0;  //Â∑ÆÂÉπ
 		addMoney = SingleMealData.get(id).getPrice()-PackageMealData.get(tempId).getSide1().getPrice();
 		if(addMoney>0)
 			OrderList.get(tempId).setPrice(OrderList.get(tempId).getPrice()+addMoney);
 		((PackageMeal) OrderList.get(tempId)).setSide1(SingleMealData.get(id));
 		
 	}
-	public static void changePackageSide2Meal(String id) {  // øÔæ‹≠nßÔ¶®¨∆ªÚ
-		addMoney = 0;  //Ætª˘
+	public static void changePackageSide2Meal(String id) {  // ÈÅ∏ÊìáË¶ÅÊîπÊàêÁîöÈ∫º
+		addMoney = 0;  //Â∑ÆÂÉπ
 		addMoney = SingleMealData.get(id).getPrice()-PackageMealData.get(tempId).getSide2().getPrice();
 		if(addMoney>0)
 			OrderList.get(tempId).setPrice(OrderList.get(tempId).getPrice()+addMoney);
 		((PackageMeal) OrderList.get(tempId)).setSide2(SingleMealData.get(id));
 		
 	}
-	public static void changePackageDrinks(String id) {  // øÔæ‹≠nßÔ¶®¨∆ªÚ
-		addMoney = 0;  //Ætª˘
+	public static void changePackageDrinks(String id) {  // ÈÅ∏ÊìáË¶ÅÊîπÊàêÁîöÈ∫º
+		addMoney = 0;  //Â∑ÆÂÉπ
 		addMoney = SingleMealData.get(id).getPrice()-PackageMealData.get(tempId).getDrinks().getPrice();
 		if(addMoney>0)
 			OrderList.get(tempId).setPrice(OrderList.get(tempId).getPrice()+addMoney);
@@ -69,14 +69,14 @@ public class OrderList {
 	}
 
 	public static String showAll() {
-		String message = "<html><body>≤M≥Ê:<br>";
+		String message = "<html><body>Ê∏ÖÂñÆ:<br>";
 		for (int i = 0; i < FoodList.size(); i++) {
 
 			if (FoodList.get(i) instanceof PackageMeal) {
-				message += (FoodList.get(i) + "<br>---∞∆¿\:" + ((PackageMeal) FoodList.get(i)).getSide1().simplePrint());
+				message += (FoodList.get(i) + "<br>---ÂâØÈ§ê:" + ((PackageMeal) FoodList.get(i)).getSide1().simplePrint());
 				if (((PackageMeal) FoodList.get(i)).getSide2() != null)
-					message += "°B" + ((PackageMeal) FoodList.get(i)).getSide2().simplePrint();
-				message += ("<br>---∂ºÆ∆:" + ((PackageMeal) FoodList.get(i)).getDrinks().simplePrint() + "<br><br>");
+					message += "„ÄÅ" + ((PackageMeal) FoodList.get(i)).getSide2().simplePrint();
+				message += ("<br>---È£≤Êñô:" + ((PackageMeal) FoodList.get(i)).getDrinks().simplePrint() + "<br><br>");
 			} else
 				message += (FoodList.get(i) + "<br><br>");
 		}
@@ -103,10 +103,10 @@ public class OrderList {
 //	}
 	public static void receipt() throws IOException
 	{	
-		String fileName="¶¨æ⁄.txt";  
+		String fileName="Êî∂Êìö.txt";  
 		
 		BufferedWriter output = new BufferedWriter(new FileWriter(fileName)); 
-		String HTML_receipt=OrderList.showAll()+"		¡`™˜√B:$"+OrderList.Calculate();
+		String HTML_receipt=OrderList.showAll()+"		Á∏ΩÈáëÈ°ç:$"+OrderList.Calculate();
 		String txt_receipt = HTML_receipt.replaceAll("<br>", "\n").replaceAll("<body>", "").replaceAll("<html>", "");
 		output.write(txt_receipt);
 		output.flush();

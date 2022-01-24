@@ -13,7 +13,10 @@ import MealItem.PackageMeal;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -29,7 +32,7 @@ public class PackageMeal2_1 extends JFrame {
 	 */
 	public static void main(String[] args) {
 		PackageMeal2_1 packageMeal2_1 = new PackageMeal2_1();
-		packageMeal2_1.setTitle("¯À­¹ÂIÀ\¨t²Î-®MÀ\¿ï³æ");
+		packageMeal2_1.setTitle("ç´ é£Ÿé»é¤ç³»çµ±-å¥—é¤é¸å–®");
 		packageMeal2_1.setVisible(true);
 	}
 
@@ -37,6 +40,7 @@ public class PackageMeal2_1 extends JFrame {
 	 * Create the frame.
 	 */
 	public PackageMeal2_1() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/NCULogo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
@@ -45,7 +49,7 @@ public class PackageMeal2_1 extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblNewLabel_1 = new JLabel("<html><body>\u60A8\u7684\u526F\u9910\u6709\u5169\u500B<br>\u8ACB\u554F\u662F\u54EA\u500B\u8981\u63DB\u5462?<body><html>");
-		lblNewLabel_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 26));
+		lblNewLabel_1.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 26));
 		lblNewLabel_1.setBounds(88, 279, 267, 80);
 		contentPane.add(lblNewLabel_1);
 		
@@ -55,22 +59,24 @@ public class PackageMeal2_1 extends JFrame {
 			option[1]=((PackageMeal) OrderList.get(OrderList.getTempId())).getSide2().getId();
 		}
 		JComboBox comboBox = new JComboBox(option);
-		comboBox.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 27));
+		comboBox.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 27));
 		comboBox.setBounds(390, 262, 267, 93);
 		contentPane.add(comboBox);
 		
 		JButton correctButton_1 = new JButton("\u56DE\u4E0A\u4E00\u9801");
+		correctButton_1.setIcon(new ImageIcon(this.getClass().getResource("/go back.png")));
 		correctButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				PackageMeal2_0.main(null);
 			}
 		});
-		correctButton_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 30));
+		correctButton_1.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 30));
 		correctButton_1.setBounds(390, 421, 392, 132);
 		contentPane.add(correctButton_1);
 		
 		JButton correctButton = new JButton("\u78BA\u8A8D");
+		correctButton.setIcon(new ImageIcon(this.getClass().getResource("/ok.png")));
 		correctButton.addActionListener(new ActionListener() {
 			
 
@@ -81,19 +87,19 @@ public class PackageMeal2_1 extends JFrame {
 				
 			}
 		});
-		correctButton.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 30));
+		correctButton.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 30));
 		correctButton.setBounds(0, 421, 392, 132);
 		contentPane.add(correctButton);
 		
 		String message="";
 		if(OrderList.getTempId()!=null) {
-			message=OrderList.getTempId()+"®MÀ\ªº°ÆÀ\¬°:";
+			message=OrderList.getTempId()+"å¥—é¤çš„å‰¯é¤ç‚º:";
 			message+=((PackageMeal) OrderList.FoodList.get(OrderList.FoodList.size()-1)).getSide1();
 			if(((PackageMeal) OrderList.FoodList.get(OrderList.FoodList.size()-1)).getSide2()!=null)
-				message+="  ¡B"+((PackageMeal) OrderList.FoodList.get(OrderList.FoodList.size()-1)).getSide2();
+				message+="  ã€"+((PackageMeal) OrderList.FoodList.get(OrderList.FoodList.size()-1)).getSide2();
 		}
 		JLabel lblNewLabel = new JLabel(message);
-		lblNewLabel.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 26));
+		lblNewLabel.setFont(new Font("æ–°ç´°æ˜é«”", Font.PLAIN, 26));
 		lblNewLabel.setBounds(55, 13, 648, 226);
 		contentPane.add(lblNewLabel);
 		

@@ -8,9 +8,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ImageIcon;
 
 public class Add1 extends JFrame {
 
@@ -20,14 +26,14 @@ public class Add1 extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		if(List3.count==1) {  //∞≤¶p¨O"ßÛ¥´"™∫∏‹¥N™Ω±µ∏ı≤M≥Ê≠∂≠±
+		if(List3.count==1) {  //ÂÅáÂ¶ÇÊòØ"Êõ¥Êèõ"ÁöÑË©±Â∞±Áõ¥Êé•Ë∑≥Ê∏ÖÂñÆÈ†ÅÈù¢
 			List1 list1 = new List1();
-			list1.setTitle("Ø¿≠π¬I¿\®t≤Œ-≤M≥Ê");
+			list1.setTitle("Á¥†È£üÈªûÈ§êÁ≥ªÁµ±-Ê∏ÖÂñÆ");
 			list1.setVisible(true);
 		}
 		else {
 			Add1 add1 = new Add1();
-			add1.setTitle("Ø¿≠π¬I¿\®t≤Œ-•[øÔ≠∂≠±");
+			add1.setTitle("Á¥†È£üÈªûÈ§êÁ≥ªÁµ±-Âä†ÈÅ∏È†ÅÈù¢");
 			add1.setVisible(true);
 		}
 	}
@@ -36,6 +42,7 @@ public class Add1 extends JFrame {
 	 * Create the frame.
 	 */
 	public Add1() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/NCULogo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
@@ -43,31 +50,59 @@ public class Add1 extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("\u8ACB\u554F\u662F\u5426\u8981\u518D\u52A0\u9EDE?");
-		lblNewLabel.setFont(new Font("∑s≤”©˙≈È", Font.PLAIN, 43));
-		lblNewLabel.setBounds(0, 210, 588, 52);
-		contentPane.add(lblNewLabel);
+		JPanel panel = new JPanel();
+		panel.setBounds(14, 23, 754, 517);
+		contentPane.add(panel);
 		
 		JButton correctButton = new JButton("\u8981");
+		correctButton.setIcon(new ImageIcon(this.getClass().getResource("/ok.png")));
 		correctButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
 				Menu1.main(null);
 			}
 		});
-		correctButton.setFont(new Font("∑s≤”©˙≈È", Font.PLAIN, 30));
-		correctButton.setBounds(0, 421, 392, 132);
-		contentPane.add(correctButton);
+		correctButton.setFont(new Font("Êñ∞Á¥∞ÊòéÈ´î", Font.PLAIN, 30));
 		
 		JButton correctButton_1 = new JButton("\u4E0D\u7528\u4E86");
+		correctButton_1.setIcon(new ImageIcon(this.getClass().getResource("/cancel.png")));
 		correctButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				List1.main(null);
 			}
 		});
-		correctButton_1.setFont(new Font("∑s≤”©˙≈È", Font.PLAIN, 30));
-		correctButton_1.setBounds(390, 421, 392, 132);
-		contentPane.add(correctButton_1);
+		correctButton_1.setFont(new Font("Êñ∞Á¥∞ÊòéÈ´î", Font.PLAIN, 30));
+		
+		JLabel lblNewLabel = new JLabel("\u8ACB\u554F\u662F\u5426\u8981\u518D\u52A0\u9EDE?");
+		lblNewLabel.setFont(new Font("Êñ∞Á¥∞ÊòéÈ´î", Font.PLAIN, 43));
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(this.getClass().getResource("/menu.png")));
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(correctButton, GroupLayout.PREFERRED_SIZE, 380, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(correctButton_1, GroupLayout.PREFERRED_SIZE, 359, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 588, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap())
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addComponent(lblNewLabel)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 342, GroupLayout.PREFERRED_SIZE)
+					.addGap(26)
+					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+						.addComponent(correctButton_1, GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+						.addComponent(correctButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)))
+		);
+		panel.setLayout(gl_panel);
 	}
 }
