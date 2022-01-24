@@ -51,7 +51,7 @@ public class List4 extends JFrame {
 			
 
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 			}
 		});
 		correctButton.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 30));

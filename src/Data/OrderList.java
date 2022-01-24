@@ -1,5 +1,8 @@
 package Data;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import MealItem.Meal;
@@ -8,76 +11,45 @@ import MealItem.PackageMeal;
 public class OrderList {
 	public static ArrayList<Meal> FoodList = new ArrayList<Meal>();
 	static String tempId;
+	public static int addMoney;
 
 	public static void SingleAdd(String id) {
-		FoodList.add(SingleMealData.FoodList.get(Integer.parseInt(id) - 1));
+		FoodList.add(SingleMealData.get(id));
 	}
 
 	public static void PackageAdd(String id) {
-		for (int i = 0; i < PackageMealData.FoodList.size(); i++) {
-			if (PackageMealData.FoodList.get(i).getId().equals(id)) {
-				FoodList.add(PackageMealData.FoodList.get(i));
-			}
-		}
+		FoodList.add(PackageMealData.get(id));
 	}
 
-	public static void changePackageSide1Meal(String id) { // 選擇要改成甚麼
-		int addMoney = 0; // 差價
-		for (int i = 0; i < FoodList.size(); i++) {
-			if (FoodList.get(i).getId().equals(tempId) && FoodList.get(i) instanceof PackageMeal) {
 
-				addMoney = SingleMealData.FoodList.get(Integer.parseInt(id) - 1).getPrice()
-						- ((PackageMeal) FoodList.get(i)).getSide1().getPrice();
-				if (addMoney > 0)
-					FoodList.get(i).setPrice(FoodList.get(i).getPrice() + addMoney);
-
-				((PackageMeal) FoodList.get(i)).setSide1(SingleMealData.FoodList.get(Integer.parseInt(id) - 1));
-				break;
-			}
-		}
-
+	public static void changePackageSide1Meal(String id) {  // 選擇要改成甚麼
+		addMoney = 0;  //差價
+		addMoney = SingleMealData.get(id).getPrice()-PackageMealData.get(tempId).getSide1().getPrice();
+		if(addMoney>0)
+			OrderList.get(tempId).setPrice(OrderList.get(tempId).getPrice()+addMoney);
+		((PackageMeal) OrderList.get(tempId)).setSide1(SingleMealData.get(id));
+		
+	}
+	public static void changePackageSide2Meal(String id) {  // 選擇要改成甚麼
+		addMoney = 0;  //差價
+		addMoney = SingleMealData.get(id).getPrice()-PackageMealData.get(tempId).getSide2().getPrice();
+		if(addMoney>0)
+			OrderList.get(tempId).setPrice(OrderList.get(tempId).getPrice()+addMoney);
+		((PackageMeal) OrderList.get(tempId)).setSide2(SingleMealData.get(id));
+		
+	}
+	public static void changePackageDrinks(String id) {  // 選擇要改成甚麼
+		addMoney = 0;  //差價
+		addMoney = SingleMealData.get(id).getPrice()-PackageMealData.get(tempId).getDrinks().getPrice();
+		if(addMoney>0)
+			OrderList.get(tempId).setPrice(OrderList.get(tempId).getPrice()+addMoney);
+		((PackageMeal) OrderList.get(tempId)).setDrinks(SingleMealData.get(id));
+		
 	}
 
-	public static void changePackageSide2Meal(String id) {
-		int addMoney = 0;
-		for (int i = 0; i < FoodList.size(); i++) {
-			if (FoodList.get(i).getId().equals(tempId) && FoodList.get(i) instanceof PackageMeal) {
-
-				addMoney = SingleMealData.FoodList.get(Integer.parseInt(id) - 1).getPrice()
-						- ((PackageMeal) FoodList.get(i)).getSide2().getPrice();
-				if (addMoney > 0)
-					FoodList.get(i).setPrice(FoodList.get(i).getPrice() + addMoney);
-
-				((PackageMeal) FoodList.get(i)).setSide2(SingleMealData.FoodList.get(Integer.parseInt(id) - 1));
-				break;
-			}
-		}
-
-	}
-
-	public static void changePackageDrinks(String id) {
-		int addMoney = 0;
-		for (int i = 0; i < FoodList.size(); i++) {
-			if (FoodList.get(i).getId().equals(tempId) && FoodList.get(i) instanceof PackageMeal) {
-
-				addMoney = SingleMealData.FoodList.get(Integer.parseInt(id) - 1).getPrice()
-						- ((PackageMeal) FoodList.get(i)).getDrinks().getPrice();
-				if (addMoney > 0)
-					FoodList.get(i).setPrice(FoodList.get(i).getPrice() + addMoney);
-
-				((PackageMeal) FoodList.get(i)).setDrinks(SingleMealData.FoodList.get(Integer.parseInt(id) - 1));
-				break;
-			}
-		}
-
-	}
 
 	public static void Remove(String id) {
-		for (int i = 0; i < FoodList.size(); i++) {
-			if (FoodList.get(i).getId().equals(id)) {
-				FoodList.remove(i);
-			}
-		}
+		FoodList.remove(OrderList.get(id));
 	}
 
 	public static String getTempId() {
@@ -110,5 +82,34 @@ public class OrderList {
 		}
 
 		return message + "<body><html>";
+	}
+
+	public static Meal get(String id) {
+		for (int i = 0; i < FoodList.size(); i++) {
+			if(FoodList.get(i).getId().equals(id)) {
+				return FoodList.get(i);
+			}
+		}
+		return null;
+	}
+//	private static String parseHTMLContent(String toString) {
+//	    String result = toString.replaceAll("<br>", "\n");
+//	    String previousResult = "";
+//	    while(!previousResult.equals(result)){
+//	        previousResult = result;
+//	        result = result.replaceAll("\n\n","\n");
+//	    }
+//	    return result;
+//	}
+	public static void receipt() throws IOException
+	{	
+		String fileName="收據.txt";  
+		
+		BufferedWriter output = new BufferedWriter(new FileWriter(fileName)); 
+		String HTML_receipt=OrderList.showAll()+"		總金額:$"+OrderList.Calculate();
+		String txt_receipt = HTML_receipt.replaceAll("<br>", "\n").replaceAll("<body>", "").replaceAll("<html>", "");
+		output.write(txt_receipt);
+		output.flush();
+		output.close();
 	}
 }

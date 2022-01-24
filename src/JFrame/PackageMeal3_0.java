@@ -1,8 +1,5 @@
 package JFrame;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,25 +15,23 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PackageMeal2_1 extends JFrame {
+public class PackageMeal3_0 extends JFrame {
 
-	public  JPanel contentPane;
-	public static String[] option;
-	public static String selected;
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		PackageMeal2_1 packageMeal2_1 = new PackageMeal2_1();
-		packageMeal2_1.setTitle("素食點餐系統-套餐選單");
-		packageMeal2_1.setVisible(true);
+		PackageMeal3_0 packageMeal2 = new PackageMeal3_0();
+		packageMeal2.setTitle("素食點餐系統-套餐選單");
+		packageMeal2.setVisible(true);
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	public PackageMeal2_1() {
+	public PackageMeal3_0() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
@@ -44,26 +39,17 @@ public class PackageMeal2_1 extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel_1 = new JLabel("<html><body>\u60A8\u7684\u526F\u9910\u6709\u5169\u500B<br>\u8ACB\u554F\u662F\u54EA\u500B\u8981\u63DB\u5462?<body><html>");
+		JLabel lblNewLabel_1 = new JLabel("\u8ACB\u554F\u662F\u5426\u9700\u8981\u66F4\u63DB:");
 		lblNewLabel_1.setFont(new Font("新細明體", Font.PLAIN, 26));
-		lblNewLabel_1.setBounds(88, 279, 267, 80);
+		lblNewLabel_1.setBounds(45, 288, 267, 80);
 		contentPane.add(lblNewLabel_1);
 		
-		option = new String[2];
-		if(OrderList.getTempId()!=null) {
-			option[0]=((PackageMeal) OrderList.get(OrderList.getTempId())).getSide1().getId();
-			option[1]=((PackageMeal) OrderList.get(OrderList.getTempId())).getSide2().getId();
-		}
-		JComboBox comboBox = new JComboBox(option);
-		comboBox.setFont(new Font("新細明體", Font.PLAIN, 27));
-		comboBox.setBounds(390, 262, 267, 93);
-		contentPane.add(comboBox);
 		
 		JButton correctButton_1 = new JButton("\u56DE\u4E0A\u4E00\u9801");
 		correctButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				PackageMeal2_0.main(null);
+				PackageMeal2_2.main(null);
 			}
 		});
 		correctButton_1.setFont(new Font("新細明體", Font.PLAIN, 30));
@@ -72,13 +58,9 @@ public class PackageMeal2_1 extends JFrame {
 		
 		JButton correctButton = new JButton("\u78BA\u8A8D");
 		correctButton.addActionListener(new ActionListener() {
-			
-
-			public void actionPerformed(ActionEvent e) {
-				selected=(String) comboBox.getSelectedItem();
+			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				PackageMeal2_2.main(null);
-				
+				PackageMeal3_1.main(null);
 			}
 		});
 		correctButton.setFont(new Font("新細明體", Font.PLAIN, 30));
@@ -87,17 +69,13 @@ public class PackageMeal2_1 extends JFrame {
 		
 		String message="";
 		if(OrderList.getTempId()!=null) {
-			message=OrderList.getTempId()+"套餐的副餐為:";
-			message+=((PackageMeal) OrderList.FoodList.get(OrderList.FoodList.size()-1)).getSide1();
-			if(((PackageMeal) OrderList.FoodList.get(OrderList.FoodList.size()-1)).getSide2()!=null)
-				message+="  、"+((PackageMeal) OrderList.FoodList.get(OrderList.FoodList.size()-1)).getSide2();
+			message=OrderList.getTempId()+"套餐的飲料為:";
+			message+=((PackageMeal) OrderList.FoodList.get(OrderList.FoodList.size()-1)).getDrinks();
 		}
 		JLabel lblNewLabel = new JLabel(message);
 		lblNewLabel.setFont(new Font("新細明體", Font.PLAIN, 26));
-		lblNewLabel.setBounds(55, 13, 648, 226);
+		lblNewLabel.setBounds(45, 30, 648, 226);
 		contentPane.add(lblNewLabel);
-		
-		
 	}
 
 }

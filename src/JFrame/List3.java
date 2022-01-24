@@ -75,7 +75,13 @@ public class List3 extends JFrame {
 		correctButton_1.setBounds(262, 421, 262, 132);
 		contentPane.add(correctButton_1);
 		
-		JButton correctButton_2 = new JButton("\u53D6\u6D88");
+		JButton correctButton_2 = new JButton("<html>\u6C92\u4E8B<br>\u4E0D\u7528\u4E86<html>");
+		correctButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				List4.main(null);
+			}
+		});
 		correctButton_2.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 30));
 		correctButton_2.setBounds(520, 421, 262, 132);
 		contentPane.add(correctButton_2);

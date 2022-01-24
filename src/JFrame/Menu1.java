@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 
 import Data.*;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.event.AncestorListener;
 import javax.swing.event.AncestorEvent;
@@ -42,7 +43,12 @@ public class Menu1 extends JFrame {
 		correctButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				SingleMeal1.main(null);
+				try {
+					SingleMeal1.main(null);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		correctButton.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 30));
@@ -53,8 +59,10 @@ public class Menu1 extends JFrame {
 		correctButton_1.addAncestorListener(new AncestorListener() {
 			public void ancestorAdded(AncestorEvent arg0) {
 			}
+
 			public void ancestorMoved(AncestorEvent arg0) {
 			}
+
 			public void ancestorRemoved(AncestorEvent arg0) {
 			}
 		});
