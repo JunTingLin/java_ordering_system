@@ -5,28 +5,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Properties;
 
-import javax.print.DocFlavor.URL;
 
 import MealItem.PackageMeal;
 
 public class PackageMealData {
 
 	public static ArrayList<PackageMeal> FoodList = new ArrayList<PackageMeal>();
-	static {
-		try {
-			setFoodList();
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
 	public static void setFoodList() throws URISyntaxException {
 		String line = "";

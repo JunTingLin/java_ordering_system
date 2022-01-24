@@ -1,8 +1,6 @@
 package JFrame;
 
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -15,7 +13,6 @@ import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;

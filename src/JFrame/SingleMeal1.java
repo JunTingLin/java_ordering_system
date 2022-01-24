@@ -1,6 +1,5 @@
 package JFrame;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,9 +7,7 @@ import javax.swing.border.EmptyBorder;
 
 import Data.OrderList;
 import Data.SingleMealData;
-import MealItem.SingleMeal;
 
-import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -20,7 +17,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
@@ -38,11 +34,9 @@ public class SingleMeal1 extends JFrame {
 	 * @throws ParseException
 	 */
 	public static void main(String[] args) throws ParseException {
-		JOptionPane.showMessageDialog(null, "SingleMeal1 new 前");
 		SingleMeal1 singleMeal1 = new SingleMeal1();
 		singleMeal1.setTitle("素食點餐系統-單點選單");
 		singleMeal1.setVisible(true);
-		JOptionPane.showMessageDialog(null, "SingleMeal1 new 後");
 	}
 
 	/**
@@ -50,7 +44,7 @@ public class SingleMeal1 extends JFrame {
 	 * 
 	 * @throws ParseException
 	 */
-	public SingleMeal1()  {
+	public SingleMeal1() throws ParseException {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/NCULogo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -60,7 +54,7 @@ public class SingleMeal1 extends JFrame {
 		setContentPane(contentPane);
 
 		JButton correctButton = new JButton("\u78BA\u8A8D");
-		correctButton.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/ok.png"))));
+		correctButton.setIcon(new ImageIcon(this.getClass().getResource("/ok.png")));
 		correctButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				selected = option[comboBox.getSelectedIndex()];
@@ -80,7 +74,7 @@ public class SingleMeal1 extends JFrame {
 		contentPane.add(correctButton);
 
 		JButton correctButton_1 = new JButton("\u56DE\u4E3B\u9078\u55AE");
-		correctButton_1.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/menu_click.png"))));
+		correctButton_1.setIcon(new ImageIcon(this.getClass().getResource("/menu_click.png")));
 		correctButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -93,14 +87,9 @@ public class SingleMeal1 extends JFrame {
 
 	 
 		for (int i = 0; i < SingleMealData.FoodList.size(); i++) {
-			try {
-				if (SingleMealData.noBreakfast() && SingleMealData.FoodList.get(i).isBreakfast()) {
-					option[i]="暫停供應";
-					continue;
-				}
-			} catch (ParseException e1) {
-				// TODO Auto-generated catch block
-				JOptionPane.showMessageDialog(null, e1);
+			if (SingleMealData.noBreakfast() && SingleMealData.FoodList.get(i).isBreakfast()) {
+				option[i]="暫停供應";
+				continue;
 			}
 			option[i]=SingleMealData.FoodList.get(i).getId();
 		}
@@ -116,14 +105,8 @@ public class SingleMeal1 extends JFrame {
 		lblNewLabel_1.setFont(new Font("新細明體", Font.PLAIN, 26));
 		lblNewLabel_1.setBounds(83, 324, 267, 80);
 		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel = null;
-		try {
-			lblNewLabel = new JLabel(SingleMealData.showMainMeal());
-		} catch (ParseException e1) {
-			
-			JOptionPane.showMessageDialog(null, "SingleMealData.showMainMeal() 後\n"+e1);
-		}
+
+		JLabel lblNewLabel = new JLabel(SingleMealData.showMainMeal());
 		lblNewLabel.setFont(new Font("新細明體", Font.PLAIN, 23));
 		lblNewLabel.setBounds(30, 33, 190, 278);
 		contentPane.add(lblNewLabel);
@@ -160,7 +143,5 @@ public class SingleMeal1 extends JFrame {
 		lblNewLabel_4_1_1.setFont(new Font("新細明體", Font.PLAIN, 27));
 		lblNewLabel_4_1_1.setBounds(520, 46, 177, 80);
 		contentPane.add(lblNewLabel_4_1_1);
-		
-		JOptionPane.showMessageDialog(null, "建構式執行完畢");
 	}
 }

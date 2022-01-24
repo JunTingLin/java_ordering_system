@@ -1,6 +1,7 @@
 package Data;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -92,6 +93,8 @@ public class OrderList {
 		}
 		return null;
 	}
+	
+	static String txt_receipt = null;
 
 	public static void receipt() throws IOException
 	{	
@@ -99,9 +102,27 @@ public class OrderList {
 		
 		BufferedWriter output = new BufferedWriter(new FileWriter(fileName)); 
 		String HTML_receipt=OrderList.showAll()+"		總金額:$"+OrderList.Calculate();
-		String txt_receipt = HTML_receipt.replaceAll("<br>", "\n").replaceAll("<body>", "").replaceAll("<html>", "");
+		txt_receipt = HTML_receipt.replaceAll("<br>", "\n").replaceAll("<body>", "").replaceAll("<html>", "");
 		output.write(txt_receipt);
 		output.flush();
 		output.close();
+	}
+	public static void TransactionRecord() throws IOException {
+		final String FILENAME = "交易記錄檔.txt";
+		 
+		File file = new File(FILENAME);
+		 
+		// if file doesnt exists, then create it
+		if (!file.exists()) {
+		  file.createNewFile();
+		}
+		 
+		// true = append file
+		FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write(txt_receipt);
+		 
+		bw.close();
+		fw.close();
 	}
 }

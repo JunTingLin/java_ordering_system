@@ -1,14 +1,16 @@
 package Data;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.text.ParseException;
 import java.util.ArrayList;
 
-import MealItem.*;
 
 public class TestMain {
 
-	public static void main(String[] args) throws IOException, ParseException {
+	public static void main(String[] args) throws IOException, ParseException, URISyntaxException {
+		SingleMealData.setFoodList();
+		PackageMealData.setFoodList();
 		System.out.println(SingleMealData.showAll());
 		System.out.println(PackageMealData.showAll());
 		System.out.println(SingleMealData.showMainMeal());
@@ -41,7 +43,7 @@ public class TestMain {
 //		OrderList.SingleAdd("3");
 		
 		System.out.println(OrderList.showAll());
-		OrderList.receipt();
+		
 		
 		System.out.println(SingleMealData.FoodList.get(6));
 		System.out.println(SingleMealData.FoodList.get(6).isBreakfast());
@@ -52,6 +54,8 @@ public class TestMain {
 			}
 			option.add(SingleMealData.FoodList.get(i).getId());
 		}
+		OrderList.receipt();
+		OrderList.TransactionRecord();
 		
 		
 	}

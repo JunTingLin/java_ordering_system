@@ -8,43 +8,30 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.swing.JOptionPane;
 
 import MealItem.SingleMeal;
 
 public class SingleMealData {
 
 	public static ArrayList<SingleMeal> FoodList = new ArrayList<SingleMeal>();
-	static {
-		JOptionPane.showMessageDialog(null, "訊息:static初始畫區塊前");
-		setFoodList();
-		JOptionPane.showMessageDialog(null, "訊息:static初始畫區塊後");
-	}
+	
 
-	public static void setFoodList() {
+	public static void setFoodList() throws URISyntaxException  {
 		String line = "";
+		File f = new File(PackageMealData.class.getResource("/Single_meal.csv").toURI());
+//		File f = new File("D://中央大學//Lesson//109-2//程式設計(陳仲儼)//109第三次段考(期末專案)//csv_data//Set_meal.csv");
+		
 		InputStreamReader read = null;
 		try {
-			JOptionPane.showMessageDialog(null, "執行前");
-//			JOptionPane.showMessageDialog(null, SingleMealData.class.getResourceAsStream("/Single_meal.csv"));
-			
-//			File f = new File(SingleMealData.class.getResource("/Single_meal.csv").toURI());
-			
-//			File f = new File("D://中央大學//Lesson//109-2//程式設計(陳仲儼)//109第三次段考(期末專案)//csv_data//Set_meal.csv");
-			read = new InputStreamReader(SingleMealData.class.getResourceAsStream("/Single_meal.csv"), "UTF-8");
-			JOptionPane.showMessageDialog(null, "執行後");
-			
-		} catch(Exception e) {
-			JOptionPane.showMessageDialog(null, e.getMessage());
-		} 
+			read = new InputStreamReader(new FileInputStream(f), "UTF-8");
+		} catch (UnsupportedEncodingException | FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
 
 		try {
 			BufferedReader br = new BufferedReader(read);
@@ -60,13 +47,11 @@ public class SingleMealData {
 				count++;
 			}
 			br.close();
-			
-//		} catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-		}catch ( Exception e) {
-			JOptionPane.showMessageDialog(null, e.getMessage());
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	};
 

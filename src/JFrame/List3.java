@@ -1,8 +1,5 @@
 package JFrame;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,7 +8,6 @@ import Data.OrderList;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.Toolkit;
 

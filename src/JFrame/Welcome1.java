@@ -1,19 +1,20 @@
 package JFrame;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Data.PackageMealData;
+import Data.SingleMealData;
+
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import java.awt.Font;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.net.URISyntaxException;
 import java.awt.event.ActionEvent;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -26,8 +27,11 @@ public class Welcome1 extends JFrame {
 
 	/**
 	 * Launch the application.
+	 * @throws URISyntaxException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws URISyntaxException {
+		SingleMealData.setFoodList();
+		PackageMealData.setFoodList();
 		Welcome1 frameWel = new Welcome1();
 		frameWel.setTitle("素食點餐系統-歡迎頁面");
 		frameWel.setVisible(true);

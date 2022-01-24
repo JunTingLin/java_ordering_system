@@ -6,17 +6,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
-import Data.*;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.event.AncestorListener;
 import javax.swing.event.AncestorEvent;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 
@@ -56,11 +51,10 @@ public class Menu1 extends JFrame {
 					public void actionPerformed(ActionEvent arg0) {
 						dispose();
 						try {
-							JOptionPane.showMessageDialog(null, "有進來");
 							SingleMeal1.main(null);
-						} catch (Exception e) {
+						} catch (ParseException e) {
 							// TODO Auto-generated catch block
-							JOptionPane.showMessageDialog(null, "訊息"+e.getMessage());
+							e.printStackTrace();
 						}
 					}
 				});
